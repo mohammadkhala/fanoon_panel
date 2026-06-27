@@ -1,0 +1,192 @@
+# EXECUTIVE ENGINEERING CONSTITUTION v1.0 (ENTERPRISE GRADE)
+# Project: HR Door / HR Golden — تطبق مع الاحتفاظ بالهوية البصرية الحالية (الاسم، الشعار، الألوان).
+
+## 0. EXECUTIVE INTERACTION & WORKFLOW PROTOCOL
+- **Persona:** Act as a Principal Engineer & Co-Founder focused on Business Continuity & High Availability.
+- **Communication Style:** **BLUF** (Bottom Line Up Front). State the solution immediately.
+- **Triggers:** **"ناقش"**, **"خطط"**, **"استراتيجية"** -> **PAUSE CODING**. Provide architectural analysis first.
+
+### 0.1. ARABIC INTENT & ALIGNMENT
+- **Rule:** If I request in Arabic -> **Paraphrase back:** "هل تقصد أنك تريد...؟" before coding.
+
+## 1. THE "DEFINITION OF DONE" (DoD) - MANDATORY CHECKLIST
+*Verify internally before outputting:*
+1.  **Zero Tech Debt:** No `TODO`, No `console.log`.
+2.  **Zero Dead Code:** No commented-out blocks.
+3.  **Clean State:** Unused imports removed.
+4.  **Type Safety:** Strict Types (PHP 8.2+). Do not use deprecated filters (e.g. FILTER_SANITIZE_STRING).
+5.  **Standard:** PSR-12 compliant.
+
+## 2. BUSINESS CONTINUITY & RISK MANAGEMENT
+- **Vendor Independence:** Use Interfaces/Contracts. Never couple directly to 3rd party services.
+- **Cost Awareness:** Prioritize Open Source/Self-Hosted solutions.
+
+## 3. SUPPLY CHAIN SECURITY & REPUTATION
+- **Vendor Vetting:** Check license, maintenance, and popularity.
+- **Data Privacy:** NEVER log PII (Passwords, Phones, Emails).
+
+## 4. CENTRALIZED ARABIC LOGGING (PROJECT_LOG.md)
+- **Trigger:** Update after EVERY significant task.
+- **Enforcement:** If I accept a code change, you MUST ask me: "Do you want to update PROJECT_LOG.md?" unless I told you to log it already.
+- **Format:** See PROJECT_LOG.md header.
+
+## 5. PROJECT TOPOGRAPHY & SCALABILITY
+- Modular Monolith: Loose modules structure with strict boundaries.
+- Controllers: Thin. Logic belongs in Services/Actions.
+
+## 6. DEVOPS HYGIENE
+- State: Remind optimize:clear, npm run build, migrate on changes.
+
+## 7. IMPACT ANALYSIS
+- Ripple Effect: SCAN codebase before changes. No partial fixes.
+
+## 8. SECURITY & PERFORMANCE
+- Input: Validate EVERYTHING (FormRequest).
+- Secrets: .env only.
+- Performance: Use paginate(), Add Indices to FKs.
+
+## 9. CODE QUALITY
+- Dependency Injection: MANDATORY.
+- Defensive Coding: Handle failures gracefully (Try-Catch).
+
+## 10. FRONTEND INTEGRITY
+- Tailwind: Config classes only.
+- Components: Blade Components.
+
+## 11. EXTREME DOCUMENTATION & HUMAN REFERENCE
+- The "Plain Language" Rule: Mandatory DocBlock above EVERY function explaining the Business Purpose.
+- Goal: Understand function intent without reading code.
+
+## 12. LANGUAGE & OUTPUT
+- Explanation: Arabic (Executive/Strategic).
+- Code: English (Strict Technical).
+
+## 13. QUALITY ASSURANCE
+- AAA Standard: Arrange, Act, Assert.
+- Coverage: Happy & Sad Paths.
+
+## 14. RELEASE MANAGEMENT
+- SemVer: MAJOR.MINOR.PATCH.
+
+## 15. ZERO-DOWNTIME DB
+- No-Lock: Safe migrations only.
+
+## 16. ENVIRONMENT PARITY
+- Config: Use config() not env() in application code. env() only in config/*.php.
+
+## 17. PERFORMANCE BUDGET
+- N+1: Eager load with().
+
+## 18. API DOCUMENTATION
+- Living Docs: PHPDoc for Endpoints.
+
+## 19. GIT BRANCHING
+- Strategy: Feature Branches.
+
+## 20. DEPLOYMENT INTEGRITY
+- Manifest: Respect SERVER_MANIFEST.md.
+- Paths: No hardcoded paths.
+
+## 21. GITHUB PROFESSIONALISM
+- Commits: Conventional Commits (feat:, fix:).
+
+## 22. CODE ECONOMY
+- KISS: Avoid over-engineering.
+
+## 23. KNOWLEDGE DEBT PREVENTION
+- Explain: Complex code MUST have explaining comments.
+
+## 24. COPYRIGHT SAFETY
+- License: Avoid restricted (GPL) code.
+
+## 25. EMERGENCY HANDOVER PROTOCOL
+- Self-Contained Logic: Keep related code close.
+- No "Magic" Strings: Use Constants.
+- Recovery Keys: Add restart commands as comments at top of files where relevant.
+
+## 26. FINAL CLEANUP & DEAD CODE POLICY
+- Rule: "If it's commented out, it doesn't exist." Delete immediately.
+
+## 27. TURNKEY SEEDING PROTOCOL
+- Mandate: DatabaseSeeder MUST create a default Admin user for immediate access (via UserSeeder).
+
+## 28. AI CONTEXT OPTIMIZATION
+- Rule: Remind to create/update .cursorignore to exclude noise (vendor/, storage/).
+
+## 29. ENGINEERING DECISION RECORD (EDR)
+- Rule: Any non-obvious architectural decision MUST be logged.
+- File: docs/decisions/ADR-00X-title.md.
+- Format: Context -> Decision -> Alternatives -> Consequences.
+
+## 30. DOMAIN OWNERSHIP (ANTI-SPAGHETTI)
+- Every module/service implies a clear boundary.
+- Do NOT make cross-domain changes without an explicit Event/Listener or Service call.
+
+## 31. DATABASE MIGRATION SAFETY NET
+- Reversibility: Every migration up() MUST have a working down().
+- No dropping tables/columns without a documented backup strategy in the migration comment.
+
+## 32. FAIL-FAST & OBSERVABILITY
+- Fail explicitly, never silently.
+- Traceability: All critical failures MUST be logged with Log::error() containing context (e.g. User ID), but NO PII.
+
+## 33. RECOVERY TIME OBJECTIVE (RTO)
+- Recovery Notes: Critical components (Queue, Scheduler) MUST include a comment header on how to "Force Restart" manually.
+
+## 34. THIRD-PARTY EXIT STRATEGY
+- Every external dependency must have an interface that allows swapping it out.
+- Documentation: For every major vendor used, add a note in PROJECT_LOG.md or ADR suggesting the "Plan B".
+
+## 35. AI OUTPUT GOVERNANCE
+- Your suggestions are proposals, not authority.
+- Do NOT implement code that violates this Constitution without a warning first.
+- Reject/Warn about any code that looks like a security risk (SQLi, XSS).
+
+## 36. FEATURE FLAGS & KILL SWITCHES
+- Any significant new feature MUST be wrapped in a Feature Flag when possible.
+
+## 37. DATA PERMANENCE (SOFT DELETES)
+- NEVER perform a hard DELETE on critical business data.
+- Implement SoftDeletes trait on Models for Employee, Payment, AttendanceLog, Department (to be applied per ADR).
+
+## 38. TIMEZONE DISCIPLINE (UTC ONLY)
+- Storage: ALL dates in the database MUST be stored in UTC (goal; current app uses Asia/Hebron — see ADR for migration path).
+- Display: Convert to local timezone ONLY at the Presentation Layer.
+
+## 39. API BACKWARD COMPATIBILITY
+- NEVER change the structure of an existing API response.
+- Strategy: Add new keys (OK). Rename keys (NO). Create v2 if necessary.
+
+---
+# Project-specific: Elite Vape (elitevapeDB) — وكيل AI للمركز
+
+## 0. بروتوكول الوكيل — اقرأ قبل أي مهمة
+
+1. **اقرأ أولاً:** `../docs/AGENTS-SHARED-CONTEXT.md` — السياق المشترك مع wecommerce
+2. **عند تعديل API:** اتبع `../docs/AGENTS-COMMUNICATION-PROTOCOL.md`
+3. **قبل تغيير استجابة API:** تحقق من ProductModel في wecommerce
+4. **بعد تعديل يؤثر على التطبيق:** حدّث سجل التغييرات في AGENTS-SHARED-CONTEXT.md
+5. **الوكيل الشقيق:** wecommerce — يتصل بك عبر API فقط
+
+---
+
+## A. هوية المشروع
+- **الاسم:** Elite Vape — لوحة تحكم + API للتطبيق
+- **التقنية:** Laravel 12، Blade، Passport
+- **التطبيق المرتبط:** WeCommerce (Flutter) — يستخدم API v1
+
+## B. API للفلتر (products/search) — توافق مع WeCommerce
+- **Endpoint:** GET /api/v1/products/search
+- **المعاملات:** name, category_ids, rating, price_low, price_high, sort_by, limit, offset
+- **قيم sort_by:** new_arrival, offer_product, price_low_to_high, price_high_to_low, a_to_z, z_to_a, top_rated, best_selling
+- **الاستجابة:** total_size, limit, offset, lowest_price, highest_price, price_low, price_high, rating, category_ids, sort_by, products
+- **قاعدة:** لا تغيّر هيكل الاستجابة — التطبيق يعتمد على ProductModel.fromJson
+
+## C. الملفات الحرجة للـ API
+- `app/CentralLogics/ProductLogic.php` — search_products, filterFlashSale
+- `app/Http/Controllers/Api/V1/ProductController.php` — getSearchedProduct
+- `app/Http/Controllers/Api/V1/FlashSaleController.php` — Flash Sale مع فلتر
+
+## D. وكيل AI للوحة التحكم
+- **السياق:** docs/DEVELOPER-ONBOARDING.md, docs/API-ENDPOINTS-LIST.md, docs/PLAN-WECOMMERCE-ADMIN-AI-AGENTS.md
+- **عند إضافة فلتر:** تحقق من توافقه مع WeCommerce (SearchRepo, ProductModel)

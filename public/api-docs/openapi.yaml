@@ -1,0 +1,106 @@
+openapi: 3.0.3
+info:
+  title: Elite Vape / Bait Pait API
+  description: |
+    واجهة برمجة التطبيقات للمتجر الإلكتروني.
+    **المصادقة:** Bearer Token (Passport) للعميل المسجّل.
+    **حد الطلبات:** limit بحد أقصى 50، offset بحد أدنى 1.
+  version: 1.0.0
+  contact:
+    name: Bait Pait
+
+servers:
+  - url: /api/v1
+    description: API v1
+
+tags:
+  - name: auth
+    description: تسجيل، دخول، OTP
+  - name: products
+    description: المنتجات
+  - name: orders
+    description: الطلبات
+  - name: customer
+    description: العميل والمعلومات الشخصية
+
+paths:
+  /products/latest:
+    get:
+      tags: [products]
+      summary: أحدث المنتجات
+      parameters:
+        - name: limit
+          in: query
+          schema: { type: integer, default: 10, maximum: 50 }
+        - name: offset
+          in: query
+          schema: { type: integer, default: 1, minimum: 1 }
+        - name: sort_by
+          in: query
+          schema: { type: string, enum: [price_high_to_low, price_low_to_high] }
+      responses:
+        '200':
+          description: قائمة المنتجات
+
+  /products/search:
+    get:
+      tags: [products]
+      summary: بحث المنتجات
+      parameters:
+        - name: name
+          in: query
+          schema: { type: string }
+        - name: limit
+          in: query
+          schema: { type: integer, default: 10, maximum: 50 }
+        - name: offset
+          in: query
+          schema: { type: integer, default: 1, minimum: 1 }
+      responses:
+        '200':
+          description: نتائج البحث
+
+  /products/details/{id}:
+    get:
+      tags: [products]
+      summary: تفاصيل منتج
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: تفاصيل المنتج
+
+  /auth/login:
+    post:
+      tags: [auth]
+      summary: تسجيل الدخول
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email: { type: string, format: email }
+                password: { type: string }
+      responses:
+        '200':
+          description: توكن الدخول
+
+  /customer/order/place:
+    post:
+      tags: [orders]
+      summary: إنشاء طلب
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+security:
+  - bearerAuth: []

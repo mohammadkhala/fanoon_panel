@@ -1,0 +1,37 @@
+.env
+.env.backup
+.env.production
+.env.*.local
+/node_modules
+/public/hot
+/public/build
+/public/storage
+/storage/*.key
+/storage/oauth-*.key
+/storage/debugbar
+/vendor
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+/Modules/Gateways
+/storage/install.zip
+/storage/update.zip
+/storage/backups
+/storage/logs/*.log
+.DS_Store
+.rnd
+/.idea
+/.vscode
+.idea
+/elitevape_deploy
+elitevape_deploy.zip
+
+# بيانات الإنتاج — لا تُرفع (استخدم migrations + seeders)
+*.sql
+*.zip
+
+# ملفات الرفع والوسائط (يُنشأ محلياً عبر storage:link)
+/storage/app/public/**
+!/storage/app/public/.gitignore

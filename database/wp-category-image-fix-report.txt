@@ -1,0 +1,6 @@
+total_categories=18
+images_copied=17
+categories_updated=17
+missing=1
+
+14	مزايا	%d9%85%d8%b2%d8%a7%d9%8a%d8%a7.png
